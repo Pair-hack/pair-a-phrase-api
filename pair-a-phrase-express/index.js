@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require('express');
 const App = express();
+const cors = require("cors");
 
 const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
@@ -13,6 +14,7 @@ const { v4: uuidv4 } = require("uuid");
 App.use(morgan('dev'))
 App.use(BodyParser.urlencoded({ extended: true }));
 App.use(BodyParser.json());
+App.use(cors());
 
 
 App.post('/translate', function(req, res) {
