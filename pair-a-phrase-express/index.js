@@ -52,7 +52,7 @@ App.post('/translate', function(req, res) {
     responseType: "json",
   }).then((result) => {
     console.log('result from backend: ', result.data);
-    return res.send(result.data);
+    return res.json(result.data);
   })
     .catch(err => console.log('translation err: ', err))
 });
